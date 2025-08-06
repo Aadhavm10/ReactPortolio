@@ -3,32 +3,23 @@ import HeroContent from "../sub/HeroContent";
 
 const Hero = () => {
   return (
-    <section id="about-me" className="relative min-h-screen w-full overflow-hidden">
-      {/* Background Video */}
-      <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          muted
-          loop
-          className="w-full h-full object-cover opacity-30 rotate-180"
-          style={{ top: '-340px' }}
-        >
-        </video>
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/50 via-transparent to-slate-950/80" />
-      </div>
+    <div className="relative flex flex-col h-full w-full" id="about-me">
+      {/* Background video - FIXED: removed pointer blocking */}
       
-      {/* Grid Pattern */}
-      <div className="absolute inset-0 z-10 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)`,
-          backgroundSize: '50px 50px'
-        }} />
+      {/* Content with explicit z-index and pointer events */}
+      <div className="relative z-[20]" style={{ pointerEvents: 'auto' }}>
+        <HeroContent />
       </div>
-      
-      <HeroContent />
-    </section>
+    </div>
   );
 };
 
 export default Hero;
+
+
+
+/*{ id: 1, img: "/images/IMG_4152.JPG" },
+    { id: 2, img: "/images/HASA.JPG" },
+    { id: 3, img: "/images/Image 8-5-25 at 4.02O PM.JPG" },
+    { id: 4, img: "/images/IMG_3158.JPG" },
+    { id: 5, img: "/images/NAV05745.JPG" }*/
