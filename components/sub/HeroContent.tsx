@@ -220,11 +220,11 @@ function Stack({
 
 const HeroContent = () => {
   const techStackCards = [
-    { id: 1, img: "/images/IMG_3158.JPG" },
     { id: 2, img: "/images/HASA.JPG" },
     { id: 3, img: "/images/Soccer.JPG" },
-    { id: 4, img: "/images/IMG_4152.JPG" },
-    { id: 5, img: "/images/NAV05745.JPG" }
+    { id: 4, img: "/images/IMG_3158.JPG" },
+    { id: 5, img: "/images/NAV05745.JPG" },
+    { id: 1, img: "/images/IMG_4152.JPG" }
   ];
 
   return (
@@ -264,6 +264,32 @@ const HeroContent = () => {
             text="Student at the University of Texas at Dallas"
             className="text-lg text-gray-400"
           />
+        </motion.div>
+
+        {/* About me - editable text block */}
+        <motion.div
+          variants={slideInFromLeft(0.9)}
+          className="max-w-[600px] space-y-3 text-gray-300 leading-relaxed"
+        >
+          <h3 className="text-sm uppercase tracking-widest text-violet-300/80">About me</h3>
+          <p>
+            I am a Computer Science student with professional experience in FullStack Development during all
+            aspects from design and coding to code reviews, testing, bug fixing, and documentation. I have built
+            multiple projects to reflect these skills aswell. I am currently 
+            in Dallas, Texas and I am a United States citizen. I love coding and building new projects 
+            that interest me. I also enjoy playing soccer, playing basketball, 
+            watching movies, listening to music, and hanging out with friends. 
+          </p>
+          <p>
+             
+          </p>
+          <div>
+            {/*<ul className="list-disc list-inside text-gray-400/90">
+              <li>Hobby 1 — replace this with something you love doing</li>
+              <li>Hobby 2 — sports, music, art, volunteering, etc.</li>
+              <li>Hobby 3 — anything else that represents you</li>
+            </ul>*/}
+          </div>
         </motion.div>
 
         <motion.a

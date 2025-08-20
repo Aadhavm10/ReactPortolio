@@ -15,11 +15,11 @@ const Projects = () => {
           src="/NextWebsite.png"
           title="Fantasy Premier League Points Predictor"
           description="A modern and responsive portfolio website built with Next.js, featuring smooth animations and interactive components."
-          projectUrl="https://github.com/yourusername/nextjs-portfolio"
+          projectUrl="https://prem-scout.vercel.app/"
         />
         <ProjectCard
           src="/CardImage.png"
-          title="Interactive Website Cards"
+          title="Foodie"
           description="A collection of interactive and animated card components with hover effects and smooth transitions."
           projectUrl="https://github.com/yourusername/interactive-cards"
         />
