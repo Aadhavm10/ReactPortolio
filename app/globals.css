@@ -70,6 +70,11 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  pointer-events: auto;
+  user-select: text;
+}
+
 .perspective-1000 {
   perspective: 1000px;
 }

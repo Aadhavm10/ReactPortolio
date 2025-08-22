@@ -7,7 +7,7 @@ const Hero = () => {
       {/* Background video - FIXED: removed pointer blocking */}
       
       {/* Content with explicit z-index and pointer events */}
-      <div className="relative z-[20]" style={{ pointerEvents: 'auto' }}>
+      <div className="relative z-10" style={{ pointerEvents: 'auto' }}>
         <HeroContent />
       </div>
     </div>
