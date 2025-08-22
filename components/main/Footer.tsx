@@ -1,76 +1,50 @@
 import React from "react";
-import {
-  RxDiscordLogo,
-  RxGithubLogo,
-  RxInstagramLogo,
-  RxTwitterLogo,
-  RxLinkedinLogo,
-} from "react-icons/rx";
-
-import { FaYoutube } from "react-icons/fa";
+import { RxGithubLogo, RxLinkedinLogo } from "react-icons/rx";
+import { MdEmail } from "react-icons/md";
 
 const Footer = () => {
   return (
-    <div className="w-full h-full bg-transparent text-gray-200 shadow-lg p-[15px] ">
-        <div className="w-full flex flex-col items-center justify-center m-auto">
-            <div className="w-full h-full flex flex-row items-center justify-around flex-wrap">
-                
+    <div id="contact" className="w-full bg-transparent text-gray-200 shadow-lg px-6 py-16">
+      <div className="max-w-5xl mx-auto flex flex-col items-center justify-center">
+        <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4">Contact Me</h2>
+        <p className="text-gray-400 mb-8 text-center max-w-2xl">
+          Interested in collaborating or have an opportunity? Reach out via any of the links below.
+        </p>
 
-                <div className="min-w-[200px] h-auto flex flex-col items-center justify-start">
-                    <div className="font-bold text-[16px]">Community</div>
-                    <p className="flex flex-row items-center my-[15px] cursor-pointer">
-                        <FaYoutube />
-                        <span className="text-[15px] ml-[6px]">Youtube</span>    
-                    </p>
-                    <p className="flex flex-row items-center my-[15px] cursor-pointer">
-                        <RxGithubLogo />
-                        <span className="text-[15px] ml-[6px]">Github</span>    
-                    </p>
-                    <p className="flex flex-row items-center my-[15px] cursor-pointer">
-                        <RxDiscordLogo />
-                        <span className="text-[15px] ml-[6px]">Discord</span>    
-                    </p>
-                </div>
-                <div className="min-w-[200px] h-auto flex flex-col items-center justify-start">
-                    <div className="font-bold text-[16px]">Social Media</div>
-                    <p className="flex flex-row items-center my-[15px] cursor-pointer">
-                        <FaYoutube />
-                        <span className="text-[15px] ml-[6px]">Instagram</span>    
-                    </p>
-                    <p className="flex flex-row items-center my-[15px] cursor-pointer">
-                        <RxGithubLogo />
-                        <span className="text-[15px] ml-[6px]">Twitter</span>    
-                    </p>
-                    <p className="flex flex-row items-center my-[15px] cursor-pointer">
-                        <RxDiscordLogo />
-                        <span className="text-[15px] ml-[6px]">Linkedin</span>    
-                    </p>
-                </div>
-                <div className="min-w-[200px] h-auto flex flex-col items-center justify-start">
-                    <div className="font-bold text-[16px]">About</div>
-                   <p className="flex flex-row items-center my-[15px] cursor-pointer">
-                     
-                        <span className="text-[15px] ml-[6px]">Become Sponsor</span>    
-                    </p>
-                    <p className="flex flex-row items-center my-[15px] cursor-pointer">
-                      
-                        <span className="text-[15px] ml-[6px]">Learning about me</span>    
-                    </p>
-                    <p className="flex flex-row items-center my-[15px] cursor-pointer">
-                  
-                        <span className="text-[15px] ml-[6px]">mifwebchain@gmail.com</span>    
-                    </p>
-                </div>
-            </div>
+        <div className="flex flex-wrap items-center justify-center gap-4">
+          <a
+            href="https://github.com/yourusername"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-[#7042f861] bg-[#0300145e] hover:bg-[#03001486] transition-colors"
+          >
+            <RxGithubLogo size={20} />
+            <span>GitHub</span>
+          </a>
 
-            <div className="mb-[20px] text-[15px] text-center">
-                &copy; WebChain Dev 2023 Inc. All rights reserved
-            </div>
+          <a
+            href="https://www.linkedin.com/in/yourusername"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-[#7042f861] bg-[#0300145e] hover:bg-[#03001486] transition-colors"
+          >
+            <RxLinkedinLogo size={20} />
+            <span>LinkedIn</span>
+          </a>
+
+          <a
+            href="mailto:youremail@example.com"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-[#7042f861] bg-[#0300145e] hover:bg-[#03001486] transition-colors"
+          >
+            <MdEmail size={20} />
+            <span>Email</span>
+          </a>
         </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
 
 

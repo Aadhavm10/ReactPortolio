@@ -52,14 +52,16 @@ const ProjectCard = ({ src, title, description, projectUrl }: Props) => {
   return (
     <div 
       ref={cardRef}
-      className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] transition-all duration-300 ease-out z-50"
+      className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] transition-all duration-300 ease-out"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onMouseEnter={handleMouseEnter}
-      style={{
-        position: 'relative',
-        zIndex: 50,
-      }}
+              style={{
+          position: 'relative',
+          width: '100%',
+          maxWidth: '100%',
+          height: 520,
+        }}
     >
         {/* Gradient overlay that appears on hover */}
         <div 
@@ -68,17 +70,20 @@ const ProjectCard = ({ src, title, description, projectUrl }: Props) => {
           }`}
         />
         
-        <Image
-          src={src}
-          alt={title}
-          width={1000}
-          height={1000}
-          className="w-full object-contain"
-        />
+        <div className="w-full" style={{ height: 300 }}>
+          <Image
+            src={src}
+            alt={title}
+            width={1000}
+            height={1000}
+            className="w-full h-full object-cover"
+            priority={false}
+          />
+        </div>
 
-        <div className="relative p-4 z-[60]" style={{ position: 'relative', zIndex: 60 }}>
-          <h1 className="text-2xl font-semibold text-white mb-2 relative z-[70]" style={{ userSelect: 'text', position: 'relative', zIndex: 70 }}>{title}</h1>
-          <p className="text-gray-300 mb-4 relative z-[70]" style={{ userSelect: 'text', position: 'relative', zIndex: 70 }}>{description}</p>
+        <div className="relative p-4 flex flex-col gap-3" style={{ position: 'relative', minHeight: 180 }}>
+          <h1 className="text-2xl font-semibold text-white mb-2">{title}</h1>
+          <p className="text-gray-300">{description}</p>
           
           {projectUrl && (
             <Link 
@@ -90,12 +95,12 @@ const ProjectCard = ({ src, title, description, projectUrl }: Props) => {
                 transition-all duration-200 ease-out
                 shadow-md hover:shadow-lg
                 hover:scale-105
-                relative z-[80]
-                ${isHovered ? 'translate-y-0 opacity-100' : 'translate-y-1 opacity-90'}
+                relative
+                ${isHovered ? 'translate-y-0 opacity-100' : 'translate-y-1 opacity-90'} mt-auto
               `}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ position: 'relative', zIndex: 80, pointerEvents: 'auto' }}
+              style={{ position: 'relative', pointerEvents: 'auto' }}
             >
               View Project
               <svg 
