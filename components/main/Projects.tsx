@@ -21,13 +21,13 @@ const Projects = () => {
           src="/Foodie.png"
           title="Foodie"
           description="Website and Mobile Application allowing gorups of people to find resteraunts that accomodate evryone. Currently in development."
-          projectUrl="https://github.com/yourusername/interactive-cards"
+          projectUrl="/projects/foodie"
         />
         <ProjectCard
           src="/SaasMatch.png"
           title="SaasMatch"
           description="Fullstack application that serves as a platform for entrepeuneurs and businesss to find eachother to complete a project. Software has been sold."
-          projectUrl="https://github.com/yourusername/space-website"
+          projectUrl="/projects/saasmatch"
         />
       </div>
     </div>

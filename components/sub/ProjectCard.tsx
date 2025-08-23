@@ -98,8 +98,8 @@ const ProjectCard = ({ src, title, description, projectUrl }: Props) => {
                 relative
                 ${isHovered ? 'translate-y-0 opacity-100' : 'translate-y-1 opacity-90'} mt-auto
               `}
-              target="_blank"
-              rel="noopener noreferrer"
+              target={projectUrl?.startsWith('http') ? "_blank" : "_self"}
+              rel={projectUrl?.startsWith('http') ? "noopener noreferrer" : undefined}
               style={{ position: 'relative', pointerEvents: 'auto' }}
             >
               View Project
