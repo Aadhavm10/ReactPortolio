@@ -12,77 +12,19 @@ const projectData: Record<string, {
   description: string;
   longDescription: string;
   technologies: string[];
-  slides: { image: string; title: string; description: string }[];
+  mediaType: 'video' | 'slides';
+  videoUrl?: string;
+  slides?: { image: string; title: string; description: string }[];
   githubUrl?: string;
   liveUrl?: string;
 }> = {
-  "saasmatch": {
-    title: "SaasMatch",
-    description: "Fullstack application that serves as a platform for entrepreneurs and businesses to find each other to complete a project. Software has been sold.",
-    longDescription: "SaasMatch is a comprehensive platform designed to connect entrepreneurs with skilled professionals and businesses. The platform facilitates project collaboration, team formation, and business partnerships through an intuitive matching system.",
-    technologies: ["React", "Node.js", "MongoDB", "Express", "TypeScript", "Stripe"],
-    slides: [
-      {
-        image: "/SaasSlides/slide1.png",
-        title: "Slide 1",
-        description: ""
-      },
-      {
-        image: "/SaasSlides/slide2.png",
-        title: "Slide 2",
-        description: ""
-      },
-      {
-        image: "/SaasSlides/slide3.png",
-        title: "Slide 3",
-        description: ""
-      },
-      {
-        image: "/SaasSlides/slide4.png",
-        title: "Slide 4",
-        description: ""
-      },
-      {
-        image: "/SaasSlides/slide5.png",
-        title: "Slide 5",
-        description: ""
-      },
-      {
-        image: "/SaasSlides/slide6.png",
-        title: "Slide 6",
-        description: ""
-      },
-      {
-        image: "/SaasSlides/slide7.png",
-        title: "Slide 7",
-        description: ""
-      },
-      {
-        image: "/SaasSlides/slide8.png",
-        title: "Slide 8",
-        description: ""
-      },
-      {
-        image: "/SaasSlides/slide9.png",
-        title: "Slide 9",
-        description: ""
-      },
-      {
-        image: "/SaasSlides/slide10.png",
-        title: "Slide 10",
-        description: ""
-      },
-      {
-        image: "/SaasSlides/slide11.png",
-        title: "Slide 11",
-        description: ""
-      },
-      {
-        image: "/SaasSlides/slide12.png",
-        title: "Slide 12",
-        description: ""
-      }
-    ],
+  "ScribbleAi": {
+    title: "ScribbleAi",
+    description: "AI-powered notes application with intelligent summarization, task extraction, and text rephrasing capabilities. Features modern authentication and real-time AI processing.",
+    longDescription: "ScribbleAI is a comprehensive AI-powered notes application that transforms how users create, organize, and interact with their notes. The platform leverages advanced AI capabilities to automatically summarize content, extract actionable tasks, and rephrase text for improved clarity and tone. Built with a modern microservices architecture, the application features secure Google OAuth authentication, real-time AI processing through the Groq API, and a sleek glass morphism design. The scalable backend handles complex note operations while the responsive frontend provides an intuitive user experience across all devices.",
+    technologies: ["React", "Node.js", "MongoDB", "Express", "TypeScript", "Stripe", "OpenAI", "Supabase"],
+    mediaType: 'video',
+    videoUrl: "/videos/saasmatch-demo.mp4", // Add your video path here
     githubUrl: "https://github.com/KappaThetaPiUTD/Saas"
   },
   "foodie": {
@@ -90,24 +32,29 @@ const projectData: Record<string, {
     description: "Website and Mobile Application allowing groups of people to find restaurants that accommodate everyone. Currently in development.",
     longDescription: "Foodie solves the common problem of finding restaurants that satisfy everyone in a group. The app considers dietary restrictions, preferences, location, and budget to suggest perfect dining options for groups.",
     technologies: ["React Native", "Next.js", "PostgreSQL", "Node.js", "Maps API", "Firebase"],
+    mediaType: 'video',
+    videoUrl: "/videos/foodie-demo.mp4", // Add your video path here
+    githubUrl: "https://github.com/KappaThetaPiUTD/Foodie"
+  },
+  // Example project with slides (keep this structure for other projects)
+  "example-project": {
+    title: "Example Project",
+    description: "An example project with slides",
+    longDescription: "This is an example of how projects with slides would look.",
+    technologies: ["React", "TypeScript"],
+    mediaType: 'slides',
     slides: [
       {
-        image: "/Foodie.png",
-        title: "Group Creation",
-        description: "Easy group creation flow where users can invite friends and set dining preferences, dietary restrictions, and budget constraints."
+        image: "/example/slide1.png",
+        title: "Slide 1",
+        description: "First slide description"
       },
       {
-        image: "/Foodie.png",
-        title: "Restaurant Matching",
-        description: "Intelligent algorithm that finds restaurants matching all group members' preferences, with ratings, reviews, and real-time availability."
-      },
-      {
-        image: "/Foodie.png",
-        title: "Mobile Experience", 
-        description: "Seamless mobile app experience with location services, push notifications, and easy reservation booking directly through the app."
+        image: "/example/slide2.png",
+        title: "Slide 2", 
+        description: "Second slide description"
       }
-    ],
-    githubUrl: "https://github.com/KappaThetaPiUTD/Foodie"
+    ]
   }
 };
 
@@ -132,12 +79,62 @@ export default function ProjectDetailPage({ params }: PageProps) {
     );
   }
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % project.slides.length);
+  const renderMedia = () => {
+    if (project.mediaType === 'video' && project.videoUrl) {
+      return (
+        <div className="aspect-video rounded-xl overflow-hidden border border-[#7042f861] bg-[#0300145e]">
+          <video
+            controls
+            className="w-full h-full object-cover"
+            poster="/video-thumbnails/default-poster.png" // Optional: Add a poster image
+          >
+            <source src={project.videoUrl} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      );
+    } else if (project.mediaType === 'slides' && project.slides) {
+      return (
+        <div className="relative">
+          <div className="aspect-video rounded-xl overflow-hidden border border-[#7042f861] bg-[#0300145e]">
+            <Image
+              src={project.slides[currentSlide].image}
+              alt={project.slides[currentSlide].title}
+              width={800}
+              height={450}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          
+
+          {/* Slide Indicators */}
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+            {project.slides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-3 h-3 rounded-full transition-colors ${
+                  index === currentSlide ? 'bg-purple-500' : 'bg-gray-500'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      );
+    }
   };
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + project.slides.length) % project.slides.length);
+  const renderMediaInfo = () => {
+    if (project.mediaType === 'slides' && project.slides) {
+      return (
+        <div className="text-center">
+          <p className="text-sm text-gray-500">
+            {currentSlide + 1} / {project.slides.length}
+          </p>
+        </div>
+      );
+    }
+    return null;
   };
 
   return (
@@ -182,61 +179,14 @@ export default function ProjectDetailPage({ params }: PageProps) {
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* Slide Presentation */}
+            {/* Media Presentation (Video or Slides) */}
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               className="space-y-6"
             >
-              <div className="relative">
-                <div className="aspect-video rounded-xl overflow-hidden border border-[#7042f861] bg-[#0300145e]">
-                  <Image
-                    src={project.slides[currentSlide].image}
-                    alt={project.slides[currentSlide].title}
-                    width={800}
-                    height={450}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                
-                {/* Slide Controls */}
-                <div className="absolute inset-y-0 left-0 flex items-center">
-                  <button
-                    onClick={prevSlide}
-                    className="ml-4 p-2 rounded-full bg-black/50 hover:bg-black/70 transition-colors"
-                  >
-                    <ChevronLeftIcon className="w-6 h-6" />
-                  </button>
-                </div>
-                <div className="absolute inset-y-0 right-0 flex items-center">
-                  <button
-                    onClick={nextSlide}
-                    className="mr-4 p-2 rounded-full bg-black/50 hover:bg-black/70 transition-colors"
-                  >
-                    <ChevronRightIcon className="w-6 h-6" />
-                  </button>
-                </div>
-
-                {/* Slide Indicators */}
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                  {project.slides.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentSlide(index)}
-                      className={`w-3 h-3 rounded-full transition-colors ${
-                        index === currentSlide ? 'bg-purple-500' : 'bg-gray-500'
-                      }`}
-                    />
-                  ))}
-                </div>
-              </div>
-
-              {/* Slide Counter */}
-              <div className="text-center">
-                <p className="text-sm text-gray-500">
-                  {currentSlide + 1} / {project.slides.length}
-                </p>
-              </div>
+              {renderMedia()}
+              {renderMediaInfo()}
             </motion.div>
 
             {/* Project Description */}
@@ -275,8 +225,6 @@ export default function ProjectDetailPage({ params }: PageProps) {
                   )}
                 </div>
               </div>
-
-
             </motion.div>
           </div>
         </div>
@@ -284,5 +232,3 @@ export default function ProjectDetailPage({ params }: PageProps) {
     </div>
   );
 }
-
-

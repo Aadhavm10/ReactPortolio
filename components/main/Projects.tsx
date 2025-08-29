@@ -24,10 +24,10 @@ const Projects = () => {
           projectUrl="/projects/foodie"
         />
         <ProjectCard
-          src="/SaasMatch.png"
-          title="SaasMatch"
+          src="/ScribbleAi.png"
+          title="ScribbleAi"
           description="Fullstack application that serves as a platform for entrepeuneurs and businesss to find eachother to complete a project. Software has been sold."
-          projectUrl="/projects/saasmatch"
+          projectUrl="/projects/ScribbleAi"
         />
       </div>
     </div>
