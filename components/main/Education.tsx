@@ -16,9 +16,7 @@ const educationSummary = {
   location: "Richardson, Texas",
   gpa: "3.9/4.0",
   highlights: [
-    "Dean's List (Fall 2023, Spring 2024)",
-    "CS Honor Society Member",
-    "Relevant Coursework in Full-Stack Development"
+    "Dean's List (Fall 2023, Spring 2024)",,
   ],
   extracurriculars: [
     "UTD Soccer",

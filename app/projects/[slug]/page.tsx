@@ -30,7 +30,7 @@ const projectData: Record<string, {
   "foodie": {
     title: "Foodie",
     description: "Website and Mobile Application allowing groups of people to find restaurants that accommodate everyone. Currently in development.",
-    longDescription: "Foodie solves the common problem of finding restaurants that satisfy everyone in a group. The app considers dietary restrictions, preferences, location, and budget to suggest perfect dining options for groups.",
+    longDescription: "Foodie solves the common problem of finding restaurants that satisfy everyone in a group. The app considers dietary restrictions, preferences, location, and budget to suggest perfect dining options for groups. We are curretly working on done front end, mobile app support, and overall testing and bug fixes. ",
     technologies: ["React Native", "Next.js", "PostgreSQL", "Node.js", "Maps API", "Firebase"],
     mediaType: 'video',
     videoUrl: "/videos/foodie-demo.mp4", // Add your video path here
