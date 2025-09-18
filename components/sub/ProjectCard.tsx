@@ -60,7 +60,7 @@ const ProjectCard = ({ src, title, description, projectUrl }: Props) => {
           position: 'relative',
           width: '100%',
           maxWidth: '100%',
-          height: 520,
+          height: 560,
         }}
     >
         {/* Gradient overlay that appears on hover */}
@@ -81,39 +81,41 @@ const ProjectCard = ({ src, title, description, projectUrl }: Props) => {
           />
         </div>
 
-        <div className="relative p-4 flex flex-col gap-3" style={{ position: 'relative', minHeight: 180 }}>
-          <h1 className="text-2xl font-semibold text-white mb-2">{title}</h1>
-          <p className="text-gray-300">{description}</p>
-          
+        <div className="relative p-4 flex flex-col justify-between h-full" style={{ height: 260 }}>
+          <div className="flex-1">
+            <h1 className="text-2xl font-semibold text-white mb-2">{title}</h1>
+            <p className="text-gray-300 text-sm leading-relaxed">{description}</p>
+          </div>
+
           {projectUrl && (
-            <Link 
+            <Link
               href={projectUrl}
               className={`
-                inline-flex items-center px-4 py-2 rounded-md text-sm font-medium
+                inline-flex items-center justify-center px-4 py-2 rounded-md text-sm font-medium
                 bg-gradient-to-r from-purple-600 to-blue-600 text-white
                 hover:from-purple-700 hover:to-blue-700
                 transition-all duration-200 ease-out
                 shadow-md hover:shadow-lg
                 hover:scale-105
-                relative
-                ${isHovered ? 'translate-y-0 opacity-100' : 'translate-y-1 opacity-90'} mt-auto
+                relative mt-4 w-full
+                ${isHovered ? 'translate-y-0 opacity-100' : 'translate-y-1 opacity-90'}
               `}
               target={projectUrl?.startsWith('http') ? "_blank" : "_self"}
               rel={projectUrl?.startsWith('http') ? "noopener noreferrer" : undefined}
               style={{ position: 'relative', pointerEvents: 'auto' }}
             >
               View Project
-              <svg 
-                className="ml-2 w-4 h-4" 
-                fill="none" 
-                stroke="currentColor" 
+              <svg
+                className="ml-2 w-4 h-4"
+                fill="none"
+                stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" 
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                 />
               </svg>
             </Link>

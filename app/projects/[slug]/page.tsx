@@ -36,6 +36,31 @@ const projectData: Record<string, {
     videoUrl: "/foodie-demo.mp4", // Add your video path here
     githubUrl: "https://github.com/KappaThetaPiUTD/Foodie"
   },
+  "gpu-optimizer": {
+    title: "GPU Utilization Optimizer",
+    description: "Comprehensive toolkit for monitoring and optimizing NVIDIA GPU performance with real-time metrics and CUDA kernel optimization demonstrations.",
+    longDescription: "GPU Utilization Optimizer is a comprehensive toolkit designed to help developers and researchers fully utilize GPU capabilities for NVIDIA graphics cards. The project features real-time monitoring of GPU utilization, temperature, memory usage, and power consumption with support for multiple NVIDIA GPUs. It includes an interactive web dashboard built with Plotly Dash that provides live performance metrics and visualization. The toolkit demonstrates CUDA kernel optimizations achieving up to 12x speedup compared to CPU processing, includes performance benchmarking tools, and offers both command-line and web interfaces. Built specifically for NVIDIA GPUs with CUDA Compute Capability 7.0+, it serves as both a monitoring solution and educational resource for GPU computing optimization.",
+    technologies: ["Python", "CUDA", "Plotly Dash", "NVIDIA Management Library", "NVML", "NumPy"],
+    mediaType: 'slides',
+    slides: [
+      {
+        image: "/gpu-optimizer/dashboard.png",
+        title: "Interactive Web Dashboard",
+        description: "Real-time monitoring of GPU utilization, temperature, memory usage, and power consumption at localhost:8050"
+      },
+      {
+        image: "/gpu-optimizer/optimization.png",
+        title: "CUDA Performance Optimization",
+        description: "Demonstrates kernel optimizations achieving up to 12x speedup compared to CPU processing"
+      },
+      {
+        image: "/gpu-optimizer/monitoring.png",
+        title: "Multi-GPU Support",
+        description: "Monitor and benchmark multiple NVIDIA GPUs with comprehensive performance metrics"
+      }
+    ],
+    githubUrl: "https://github.com/Aadhavm10/GPU_Optimzer"
+  },
   // Example project with slides (keep this structure for other projects)
   "example-project": {
     title: "Example Project",
