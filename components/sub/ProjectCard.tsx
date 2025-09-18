@@ -61,7 +61,6 @@ const ProjectCard = ({ src, title, description, projectUrl }: Props) => {
           width: '100%',
           maxWidth: '100%',
           height: 'auto',
-          minHeight: 400,
         }}
     >
         {/* Gradient overlay that appears on hover */}
@@ -82,7 +81,7 @@ const ProjectCard = ({ src, title, description, projectUrl }: Props) => {
           />
         </div>
 
-        <div className="relative p-3 sm:p-4 flex flex-col justify-between h-full" style={{ minHeight: 200 }}>
+        <div className="relative p-3 sm:p-4 flex flex-col justify-between" style={{ minHeight: 200 }}>
           <div className="flex-1">
             <h1 className="text-lg sm:text-xl lg:text-2xl font-semibold text-white mb-2">{title}</h1>
             <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">{description}</p>
@@ -92,18 +91,18 @@ const ProjectCard = ({ src, title, description, projectUrl }: Props) => {
             <Link
               href={projectUrl}
               className={`
-                inline-flex items-center justify-center px-3 sm:px-4 py-2 rounded-md text-xs sm:text-sm font-medium
+                inline-flex items-center justify-center px-4 py-3 rounded-md text-sm font-medium
                 bg-gradient-to-r from-purple-600 to-blue-600 text-white
                 hover:from-purple-700 hover:to-blue-700
                 transition-all duration-200 ease-out
-                shadow-md hover:shadow-lg
+                shadow-lg hover:shadow-xl
                 hover:scale-105
-                relative mt-4 w-full
-                ${isHovered ? 'translate-y-0 opacity-100' : 'translate-y-1 opacity-90'}
+                mt-4 w-full
+                opacity-100
               `}
               target={projectUrl?.startsWith('http') ? "_blank" : "_self"}
               rel={projectUrl?.startsWith('http') ? "noopener noreferrer" : undefined}
-              style={{ position: 'relative', pointerEvents: 'auto' }}
+              style={{ position: 'relative', pointerEvents: 'auto', zIndex: 20 }}
             >
               View Project
               <svg
