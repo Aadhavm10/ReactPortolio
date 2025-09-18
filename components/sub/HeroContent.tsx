@@ -231,13 +231,13 @@ const HeroContent = () => {
     <motion.div
       initial="hidden"
       animate="visible"
-      className="flex flex-row items-center justify-center px-20 mt-40 w-full relative z-10"
+      className="flex flex-col lg:flex-row items-center justify-center px-4 sm:px-8 lg:px-20 mt-20 sm:mt-32 lg:mt-40 w-full relative z-10"
     >
-      <div className="h-full w-full flex flex-col gap-5 justify-center m-auto text-start">
+      <div className="h-full w-full flex flex-col gap-3 sm:gap-5 justify-center m-auto text-start order-2 lg:order-1">
 
         <motion.div
           variants={slideInFromLeft(0.5)}
-          className="flex flex-col gap-6 mt-6 text-6xl font-bold text-white max-w-[600px] w-auto h-auto"
+          className="flex flex-col gap-3 sm:gap-6 mt-3 sm:mt-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white max-w-[600px] w-auto h-auto text-center lg:text-left"
         >
           <span>
             Aadhav
@@ -249,21 +249,21 @@ const HeroContent = () => {
 
         <motion.div
           variants={slideInFromLeft(0.8)}
-          className="my-5 max-w-[600px]"
+          className="my-3 sm:my-5 max-w-[600px] text-center lg:text-left"
         >
           <DecryptedText 
             text="Student at the University of Texas at Dallas"
-            className="text-lg text-gray-400"
+            className="text-base sm:text-lg text-gray-400"
           />
         </motion.div>
 
         {/* About me - editable text block */}
         <motion.div
           variants={slideInFromLeft(0.9)}
-          className="max-w-[600px] space-y-3 text-gray-300 leading-relaxed"
+          className="max-w-[600px] space-y-2 sm:space-y-3 text-gray-300 leading-relaxed text-center lg:text-left"
         >
-          <h3 className="text-sm uppercase tracking-widest text-violet-300/80">About me</h3>
-          <p>
+          <h3 className="text-xs sm:text-sm uppercase tracking-widest text-violet-300/80">About me</h3>
+          <p className="text-sm sm:text-base">
             I am a Computer Science student with professional experience in FullStack Development during all
             aspects from design and coding to code reviews, testing, bug fixing, and documentation. I have built
             multiple projects to reflect these skills aswell. I am currently 
@@ -287,14 +287,14 @@ const HeroContent = () => {
 
       <motion.div
         variants={slideInFromRight(0.8)}
-        className="w-full h-full flex justify-center items-center"
+        className="w-full h-full flex justify-center items-center order-1 lg:order-2 mb-8 lg:mb-0"
       >
         <Stack 
           cardsData={techStackCards}
           randomRotation={false}
           sensitivity={60}
           sendToBackOnClick={false}
-          cardDimensions={{ width: 400, height: 400 }}
+          cardDimensions={{ width: 250, height: 250 }}
         />
       </motion.div>
     </motion.div>

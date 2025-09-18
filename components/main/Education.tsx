@@ -49,27 +49,27 @@ const Education = () => {
   return (
     <section
       id="education"
-      className="flex flex-col items-center justify-center gap-8 h-full relative overflow-hidden py-20"
+      className="flex flex-col items-center justify-center gap-6 sm:gap-8 h-full relative overflow-hidden py-10 sm:py-16 lg:py-20"
       style={{ transform: "scale(0.98)" }}
     >
       <div className="text-center">
         <p className="text-xs tracking-widest text-violet-300/80 uppercase">Academic & Professional</p>
-        <h2 className="mt-2 text-3xl md:text-4xl font-semibold text-white">Education</h2>
+        <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-semibold text-white">Education</h2>
       </div>
 
-      <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 px-4 sm:px-6">
         {/* Education Summary */}
-        <div className="rounded-2xl border border-[#7042f88b] bg-[#0300145e] backdrop-blur-md p-6 text-gray-200">
+        <div className="rounded-2xl border border-[#7042f88b] bg-[#0300145e] backdrop-blur-md p-4 sm:p-6 text-gray-200">
           <div className="mb-4">
             <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 flex items-center justify-center mb-3">
               <span className="text-white text-sm font-bold">🎓</span>
             </div>
-            <h3 className="text-xl font-semibold text-white">Education</h3>
+            <h3 className="text-lg sm:text-xl font-semibold text-white">Education</h3>
           </div>
           
           <div className="space-y-4">
             <div>
-              <h4 className="text-lg font-medium text-white">{educationSummary.school}</h4>
+              <h4 className="text-base sm:text-lg font-medium text-white">{educationSummary.school}</h4>
               <p className="text-sm text-gray-300">{educationSummary.location}</p>
               <p className="text-violet-200 mt-1">{educationSummary.degree}</p>
               <p className="text-xs text-gray-400 mt-1">{educationSummary.period}</p>
@@ -105,19 +105,19 @@ const Education = () => {
         
 
         {/* Coursework */}
-        <div className="rounded-2xl border border-[#7042f88b] bg-[#0300145e] backdrop-blur-md p-6 text-gray-200">
+        <div className="rounded-2xl border border-[#7042f88b] bg-[#0300145e] backdrop-blur-md p-4 sm:p-6 text-gray-200">
           <div className="mb-4">
             <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center mb-3">
               <span className="text-white text-sm font-bold">📚</span>
             </div>
-            <h4 className="text-xl font-semibold text-white">Relevant Coursework</h4>
+            <h4 className="text-lg sm:text-xl font-semibold text-white">Relevant Coursework</h4>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-2 sm:gap-3">
             {allCourses.map((course, index) => (
               <div
                 key={index}
-                className="px-3 py-2 rounded-lg border border-violet-400/20 bg-violet-500/5 text-sm text-gray-200 hover:bg-violet-500/10 transition-colors"
+                className="px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-violet-400/20 bg-violet-500/5 text-xs sm:text-sm text-gray-200 hover:bg-violet-500/10 transition-colors"
               >
                 {course}
               </div>

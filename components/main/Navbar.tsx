@@ -47,18 +47,18 @@ const Navbar = () => {
         </defs>
       </svg>
 
-      <div className="w-full h-full flex items-center justify-between m-auto px-[10px]">
+      <div className="w-full h-full flex items-center m-auto px-[10px]">
         <a
           href="#about-me"
-          className="h-auto w-auto flex flex-row items-center"
+          className="h-auto w-auto flex flex-row items-center flex-1"
         >
           <span className="font-bold ml-[10px] hidden md:block text-gray-300">
             Aadhav Manimurugan
           </span>
         </a>
 
-        {/* Gooey Nav */}
-        <div className="relative w-[500px] h-full flex items-center justify-center md:mr-20">
+        {/* Gooey Nav - Centered */}
+        <div className="relative w-full max-w-[500px] h-full flex items-center justify-center absolute left-1/2 transform -translate-x-1/2">
           {/* Gooey blobs */}
           <div
             className="absolute w-full h-full left-0 top-0 pointer-events-none z-0 flex items-center gooey"
@@ -95,7 +95,7 @@ const Navbar = () => {
 
           <div
             ref={navContainerRef}
-            className="flex items-center justify-between w-full border border-[#7042f861] bg-[#0300145e] px-[20px] py-[10px] rounded-full text-gray-200 relative z-10"
+            className="flex items-center justify-between w-full border border-[#7042f861] bg-[#0300145e] px-[12px] sm:px-[20px] py-[8px] sm:py-[10px] rounded-full text-gray-200 relative z-10"
             onMouseLeave={() => {
               setActiveIndex(null);
               setBlobVisible(false);
@@ -105,7 +105,7 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="cursor-pointer px-4 relative z-20"
+                className="cursor-pointer px-2 sm:px-4 relative z-20 text-sm sm:text-base"
                 onMouseEnter={(e) => {
                   setActiveIndex(index);
                   setBlobVisible(true);
@@ -117,6 +117,9 @@ const Navbar = () => {
             ))}
           </div>
         </div>
+
+        {/* Right spacer to balance the layout */}
+        <div className="flex-1"></div>
 
       </div>
     </div>
