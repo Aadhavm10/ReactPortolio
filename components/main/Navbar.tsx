@@ -1,8 +1,6 @@
 "use client";
 
-import { Socials } from "@/constants";
-import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 const navLinks = [
@@ -120,18 +118,6 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Social Icons */}
-        <div className="flex flex-row gap-5">
-          {Socials.map((social) => (
-            <Image
-              src={social.src}
-              alt={social.name}
-              key={social.name}
-              width={24}
-              height={24}
-            />
-          ))}
-        </div>
       </div>
     </div>
   );
