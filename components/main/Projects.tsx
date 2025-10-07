@@ -21,7 +21,7 @@ const Projects = () => {
           src="/Foodie.png"
           title="Foodie"
           description="Group dining solution that finds restaurants accommodating everyone's dietary restrictions, preferences, and budget constraints."
-          projectUrl="/projects/foodie"
+          projectUrl="https://foodiemaps.vercel.app/landing"
         />
         <ProjectCard
           src="/ScribbleAi.png"
