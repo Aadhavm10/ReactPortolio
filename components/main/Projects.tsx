@@ -27,7 +27,7 @@ const Projects = () => {
           src="/ScribbleAi.png"
           title="ScribbleAi"
           description="AI-powered notes application with intelligent summarization, task extraction, and text rephrasing capabilities for enhanced productivity."
-          projectUrl="/projects/ScribbleAi"
+          projectUrl="https://github.com/Aadhavm10/ScribbleAi"
         />
         <ProjectCard
           src="/gpu-optimizer.png"
