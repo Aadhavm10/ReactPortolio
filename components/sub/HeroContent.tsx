@@ -231,7 +231,7 @@ const HeroContent = () => {
     <motion.div
       initial="hidden"
       animate="visible"
-      className="flex flex-col lg:flex-row items-center justify-center px-4 sm:px-8 lg:px-20 mt-20 sm:mt-32 lg:mt-40 w-full relative z-10"
+      className="flex flex-col lg:flex-row items-center justify-center px-4 sm:px-8 lg:px-20 mt-8 sm:mt-12 lg:mt-16 w-full relative z-10"
     >
       <div className="h-full w-full flex flex-col gap-3 sm:gap-5 justify-center m-auto text-start order-2 lg:order-1">
 
@@ -252,34 +252,40 @@ const HeroContent = () => {
           className="my-3 sm:my-5 max-w-[600px] text-center lg:text-left"
         >
           <DecryptedText 
-            text="Student at the University of Texas at Dallas"
+            text="Computer Science Student at the UT Dallas"
             className="text-base sm:text-lg text-gray-400"
           />
         </motion.div>
 
-        {/* About me - editable text block */}
+        {/* About me - card layout */}
         <motion.div
           variants={slideInFromLeft(0.9)}
-          className="max-w-[600px] space-y-2 sm:space-y-3 text-gray-300 leading-relaxed text-center lg:text-left"
+          className="max-w-[600px] space-y-4 text-center lg:text-left"
         >
-          <h3 className="text-xs sm:text-sm uppercase tracking-widest text-violet-300/80">About me</h3>
-          <p className="text-sm sm:text-base">
-            I am a Computer Science student with professional experience in FullStack Development during all
-            aspects from design and coding to code reviews, testing, bug fixing, and documentation. I have built
-            multiple projects to reflect these skills aswell. I am currently 
-            in Dallas, Texas and I am a United States citizen. I love coding and building new projects 
-            that interest me. I also enjoy playing soccer, playing basketball, 
-            watching movies, listening to music, and hanging out with friends. 
-          </p>
-          <p>
-             
-          </p>
-          <div>
-            {/*<ul className="list-disc list-inside text-gray-400/90">
-              <li>Hobby 1 — replace this with something you love doing</li>
-              <li>Hobby 2 — sports, music, art, volunteering, etc.</li>
-              <li>Hobby 3 — anything else that represents you</li>
-            </ul>*/}
+          <h3 className="text-xs sm:text-sm uppercase tracking-widest text-violet-300/80 mb-4">About me</h3>
+
+          {/* Professional Summary Card */}
+          <div className="group rounded-xl border border-violet-400/20 bg-gradient-to-br from-violet-500/5 to-cyan-500/5 backdrop-blur-sm p-4 space-y-3 hover:border-violet-400/40 hover:from-violet-500/10 hover:to-cyan-500/10 transition-all duration-300 cursor-pointer">
+            <h4 className="text-sm font-semibold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-cyan-400 transition-all duration-300">Professional</h4>
+            <p className="text-sm text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+            Full-Stack Developer and Machine Learning Engineer with professional experience across design, architecture, implementation, testing, and deployment. Built production systems serving thousands of users at scale, with expertise in React, TypeScript, Python, Java, and cloud infrastructure. Skilled in optimizing system performance, developing RESTful APIs, and collaborating cross-functionally in agile environments while delivering high-quality, maintainable code.
+            </p>
+          </div>
+
+          {/* Interests Card */}
+          <div className="group rounded-xl border border-violet-400/20 bg-gradient-to-br from-violet-500/5 to-cyan-500/5 backdrop-blur-sm p-4 space-y-3 hover:border-violet-400/40 hover:from-violet-500/10 hover:to-cyan-500/10 transition-all duration-300 cursor-pointer">
+            <h4 className="text-sm font-semibold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-pink-400 group-hover:to-orange-400 transition-all duration-300">Beyond Code</h4>
+            <p className="text-sm text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+              Passionate about coding and building innovative projects. Outside of tech, I enjoy playing soccer and basketball, watching movies, listening to music, and spending time with friends.
+            </p>
+          </div>
+
+          {/* Location & Status Card */}
+          <div className="group rounded-xl border border-violet-400/20 bg-gradient-to-br from-violet-500/5 to-cyan-500/5 backdrop-blur-sm p-4 space-y-3 hover:border-violet-400/40 hover:from-violet-500/10 hover:to-cyan-500/10 transition-all duration-300 cursor-pointer">
+            <h4 className="text-sm font-semibold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 transition-all duration-300">Location</h4>
+            <p className="text-sm text-gray-300 group-hover:text-gray-200 transition-colors duration-300">
+              Currently based in Dallas, Texas • United States citizen
+            </p>
           </div>
         </motion.div>
 
@@ -287,16 +293,18 @@ const HeroContent = () => {
 
       <motion.div
         variants={slideInFromRight(0.8)}
-        className="w-full h-full flex justify-center items-center order-1 lg:order-2 mb-8 lg:mb-0"
+        className="w-full h-full flex flex-col justify-center items-center order-1 lg:order-2 mb-8 lg:mb-0 gap-4"
       >
-        <Stack 
+        <Stack
           cardsData={techStackCards}
           randomRotation={false}
           sensitivity={60}
           sendToBackOnClick={false}
-          cardDimensions={{ width: 250, height: 250 }}
-
-/>
+          cardDimensions={{ width: 350, height: 350 }}
+        />
+        <p className="text-xs sm:text-sm text-gray-400/80 tracking-wide">
+          Drag or swipe to explore
+        </p>
       </motion.div>
     </motion.div>
   );

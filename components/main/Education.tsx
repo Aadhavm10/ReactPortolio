@@ -1,23 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
-
-type CourseTerm = {
-  term: string;
-  courses: string[];
-};
-
-
+import React from "react";
 
 const educationSummary = {
   school: "University of Texas at Dallas",
   degree: "B.S. in Computer Science",
   period: "Expected Graduation: December 2026",
   location: "Richardson, Texas",
-  gpa: "3.9/4.0",
-  highlights: [
-    "Dean's List (Fall 2023, Spring 2024)",,
-  ],
+  gpa: "3.6/4.0",
   extracurriculars: [
     "UTD Soccer",
     "Kappa Theta Pi",
@@ -26,7 +16,7 @@ const educationSummary = {
 
 const allCourses = [
   "Data Structures & Algorithms",
-  "Discrete Mathematics", 
+  "Discrete Mathematics",
   "Linear Algebra",
   "Computer Systems Architecture",
   "Advanced Algorithms",
@@ -42,90 +32,87 @@ const allCourses = [
   "Artificial Intelligence"
 ];
 
-
-
 const Education = () => {
-
   return (
     <section
       id="education"
-      className="flex flex-col items-center justify-center gap-6 sm:gap-8 h-full relative overflow-hidden py-10 sm:py-16 lg:py-20"
-      style={{ transform: "scale(0.98)" }}
+      className="flex flex-col items-center justify-center gap-8 sm:gap-12 h-full relative overflow-hidden py-16 sm:py-20 lg:py-28"
     >
-      <div className="text-center">
-        <p className="text-xs tracking-widest text-violet-300/80 uppercase">Academic & Professional</p>
-        <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-semibold text-white">Education</h2>
+      {/* Header */}
+      <div className="text-center space-y-3">
+        <p className="text-xs tracking-widest text-violet-300/80 uppercase">Academic Journey</p>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">Education</h2>
+        <div className="h-1 w-20 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full mx-auto"></div>
       </div>
 
-      <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 px-4 sm:px-6">
-        {/* Education Summary */}
-        <div className="rounded-2xl border border-[#7042f88b] bg-[#0300145e] backdrop-blur-md p-4 sm:p-6 text-gray-200">
-          <div className="mb-4">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 flex items-center justify-center mb-3">
-              <span className="text-white text-sm font-bold">🎓</span>
-            </div>
-            <h3 className="text-lg sm:text-xl font-semibold text-white">Education</h3>
-          </div>
-          
-          <div className="space-y-4">
-            <div>
-              <h4 className="text-base sm:text-lg font-medium text-white">{educationSummary.school}</h4>
-              <p className="text-sm text-gray-300">{educationSummary.location}</p>
-              <p className="text-violet-200 mt-1">{educationSummary.degree}</p>
-              <p className="text-xs text-gray-400 mt-1">{educationSummary.period}</p>
+      <div className="w-full max-w-6xl px-4 sm:px-6 space-y-8">
+        {/* Main Education Card */}
+        <div className="group relative rounded-2xl border border-violet-400/30 bg-gradient-to-br from-violet-500/10 via-transparent to-cyan-500/10 backdrop-blur-lg p-6 sm:p-8 hover:border-violet-400/50 transition-all duration-500">
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-violet-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+          <div className="relative space-y-6">
+            {/* School Info */}
+            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+              <div className="space-y-2">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-cyan-400 transition-all duration-500">
+                  {educationSummary.school}
+                </h3>
+                <p className="text-sm text-gray-400">{educationSummary.location}</p>
+              </div>
+
+              <div className="flex items-center gap-3 lg:gap-4 px-4 py-2 rounded-xl bg-gradient-to-r from-violet-500/20 to-cyan-500/20 border border-violet-400/30 w-fit">
+                <div className="text-center">
+                  <p className="text-xs uppercase tracking-wider text-violet-300/70">GPA</p>
+                  <p className="text-lg font-bold text-white">{educationSummary.gpa}</p>
+                </div>
+              </div>
             </div>
 
+            {/* Degree & Period */}
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+              <span className="text-base sm:text-lg font-medium text-violet-200">
+                {educationSummary.degree}
+              </span>
+              <span className="hidden sm:inline text-violet-400/50">•</span>
+              <span className="text-sm text-gray-400">{educationSummary.period}</span>
+            </div>
 
-            <div>
-              <h5 className="text-sm font-medium text-white mb-2">Achievements</h5>
-              <ul className="space-y-1">
-                {educationSummary.highlights.map((highlight, index) => (
-                  <li key={index} className="text-xs text-gray-300 flex items-start gap-2">
-                    <span className="text-violet-400 mt-1">•</span>
-                    {highlight}
-                  </li>
+            {/* Extracurriculars */}
+            <div className="space-y-3 pt-2">
+              <h4 className="text-sm uppercase tracking-wider text-violet-300/70">Involvement</h4>
+              <div className="flex flex-wrap gap-2">
+                {educationSummary.extracurriculars.map((activity, index) => (
+                  <span
+                    key={index}
+                    className="px-4 py-2 rounded-lg text-sm font-medium bg-gradient-to-r from-violet-500/15 to-cyan-500/15 border border-violet-400/30 text-gray-200 hover:border-violet-400/50 hover:from-violet-500/25 hover:to-cyan-500/25 transition-all duration-300"
+                  >
+                    {activity}
+                  </span>
                 ))}
-              </ul>
-            </div>
-
-            <div>
-              <h5 className="text-sm font-medium text-white mb-2">Extracurriculars</h5>
-              <ul className="space-y-1">
-                {educationSummary.extracurriculars.map((highlight, index) => (
-                  <li key={index} className="text-xs text-gray-300 flex items-start gap-2">
-                    <span className="text-violet-400 mt-1">•</span>
-                    {highlight}
-                  </li>
-                ))}
-              </ul>
+              </div>
             </div>
           </div>
         </div>
 
-        
-
-        {/* Coursework */}
-        <div className="rounded-2xl border border-[#7042f88b] bg-[#0300145e] backdrop-blur-md p-4 sm:p-6 text-gray-200">
-          <div className="mb-4">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center mb-3">
-              <span className="text-white text-sm font-bold">📚</span>
-            </div>
-            <h4 className="text-lg sm:text-xl font-semibold text-white">Relevant Coursework</h4>
+        {/* Coursework Section */}
+        <div className="space-y-4">
+          <div className="flex items-center gap-3">
+            <h3 className="text-xl sm:text-2xl font-semibold text-white">Relevant Coursework</h3>
+            <div className="flex-1 h-px bg-gradient-to-r from-violet-400/50 to-transparent"></div>
           </div>
 
-          <div className="grid grid-cols-1 gap-2 sm:gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {allCourses.map((course, index) => (
               <div
                 key={index}
-                className="px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-violet-400/20 bg-violet-500/5 text-xs sm:text-sm text-gray-200 hover:bg-violet-500/10 transition-colors"
+                className="group relative px-4 py-3 rounded-xl border border-violet-400/20 bg-gradient-to-br from-violet-500/5 to-transparent backdrop-blur-sm text-sm text-gray-200 hover:border-violet-400/40 hover:from-violet-500/10 hover:to-cyan-500/10 transition-all duration-300 cursor-pointer"
               >
-                {course}
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-violet-500/0 to-cyan-500/0 group-hover:from-violet-500/5 group-hover:to-cyan-500/5 transition-all duration-300"></div>
+                <span className="relative">{course}</span>
               </div>
             ))}
           </div>
         </div>
-
-
       </div>
 
       <div className="w-full h-full absolute pointer-events-none">
